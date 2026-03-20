@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatric Care - QuickCare</title>
+    <link rel="stylesheet" href="pediatric.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>QuickCare</span>
+            </div>
+            <ul class="nav-menu">
+               <!--- <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="pediatric.html" class="nav-link active"><i class="fas fa-baby"></i> Pediatric Care</a></li>
+                <li class="nav-item"><a href="cardiology.html" class="nav-link"><i class="fas fa-heart"></i> Cardiology</a></li> --->
+            </ul>
+            <div class="nav-actions">
+                <button class="emergency-btn" onclick="openPediatricEmergency()">
+                    <i class="fas fa-ambulance"></i>
+                    Child Emergency
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pediatric Hero Section -->
+    <section class="pediatric-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Pediatric & Child Care</h1>
+                <p class="hero-subtitle">Comprehensive healthcare for your little ones</p>
+                <p class="hero-description">
+                    Expert pediatric care with child-friendly environment, vaccination services, 
+                    growth monitoring, and specialized treatment for children from newborn to adolescence.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Happy Children</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Pediatricians</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Child Emergency</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Parent Satisfaction</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="openPediatricEmergency()">
+                        <i class="fas fa-ambulance"></i>
+                        Child Emergency
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToConsultation()">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Consultation
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=500&h=500&fit=crop" alt="Pediatric Care">
+            </div>
+        </div>
+    </section>
+
+    <!-- Child Symptoms Checker -->
+    <section class="child-symptoms">
+        <div class="container">
+            <h2>Child Symptoms Checker</h2>
+            <p class="section-subtitle">Describe your child's symptoms for quick assessment</p>
+            
+            <div class="symptoms-form">
+                <div class="form-section">
+                    <h3>Child's Basic Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="childAge">Child's Age *</label>
+                            <input type="number" id="childAge" min="0" max="18" placeholder="Age in years" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="childWeight">Weight (kg)</label>
+                            <input type="number" id="childWeight" min="1" max="100" placeholder="Optional">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Common Symptoms</h3>
+                    <div class="symptoms-grid">
+                        <div class="symptom-option" data-symptom="fever">
+                            <i class="fas fa-temperature-full"></i>
+                            <span>Fever</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="cough">
+                            <i class="fas fa-lungs"></i>
+                            <span>Cough</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="cold">
+                            <i class="fas fa-wind"></i>
+                            <span>Cold & Runny Nose</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="vomiting">
+                            <i class="fas fa-person-dots-from-line"></i>
+                            <span>Vomiting</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="diarrhea">
+                            <i class="fas fa-toilet"></i>
+                            <span>Diarrhea</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="rash">
+                            <i class="fas fa-allergies"></i>
+                            <span>Skin Rash</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="ear-pain">
+                            <i class="fas fa-ear-listen"></i>
+                            <span>Ear Pain</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="poor-feeding">
+                            <i class="fas fa-baby"></i>
+                            <span>Poor Feeding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Symptom Details</h3>
+                    <div class="form-group">
+                        <label for="symptomDuration">How long has your child been unwell?</label>
+                        <select id="symptomDuration">
+                            <option value="">Select Duration</option>
+                            <option value="hours">Few hours</option>
+                            <option value="days-1">1-2 days</option>
+                            <option value="days-3">3-5 days</option>
+                            <option value="week">More than 1 week</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feverTemperature">Fever Temperature (if any)</label>
+                        <select id="feverTemperature">
+                            <option value="">Select Temperature</option>
+                            <option value="normal">Normal (Below 99°F)</option>
+                            <option value="mild">Mild Fever (99-100.4°F)</option>
+                            <option value="moderate">Moderate (100.5-102°F)</option>
+                            <option value="high">High (Above 102°F)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="symptomSeverity">How uncomfortable is your child?</label>
+                        <div class="severity-options">
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="mild">
+                                <span class="severity-label mild">Mild<br><small>Playing normally</small></span>
+                            </label>
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="moderate">
+                                <span class="severity-label moderate">Moderate<br><small>Less active</small></span>
+                            </label>
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="severe">
+                                <span class="severity-label severe">Severe<br><small>Very irritable</small></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" placeholder="Describe symptoms in detail, any medications given, recent exposures..." rows="4"></textarea>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn-large" onclick="analyzeChildSymptoms()">
+                    <i class="fas fa-stethoscope"></i>
+                    Analyze Child Symptoms
+                </button>
+                <button class="btn-outline" onclick="resetSymptoms()" style="margin-top: 10px;">
+                    <i class="fas fa-redo"></i>
+                    Reset Form
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vaccination Schedule -->
+    <section class="vaccination-schedule">
+        <div class="container">
+            <h2>Child Vaccination Schedule</h2>
+            <p class="section-subtitle">Complete immunization schedule as per IAP recommendations</p>
+            
+            <div class="vaccination-tabs">
+                <button class="tab-button active" onclick="openVaccinationTab('birth')">Birth</button>
+                <button class="tab-button" onclick="openVaccinationTab('6-weeks')">6 Weeks</button>
+                <button class="tab-button" onclick="openVaccinationTab('10-weeks')">10 Weeks</button>
+                <button class="tab-button" onclick="openVaccinationTab('14-weeks')">14 Weeks</button>
+                <button class="tab-button" onclick="openVaccinationTab('6-months')">6 Months</button>
+                <button class="tab-button" onclick="openVaccinationTab('9-months')">9-12 Months</button>
+                <button class="tab-button" onclick="openVaccinationTab('15-months')">15-18 Months</button>
+            </div>
+
+            <div class="tab-content">
+                <div id="birth" class="tab-pane active">
+                    <h3>Vaccines at Birth</h3>
+                    <div class="vaccine-grid">
+                        <div class="vaccine-card">
+                            <h4>BCG</h4>
+                            <p>Tuberculosis prevention</p>
+                            <span class="vaccine-importance">Essential</span>
+                        </div>
+                        <div class="vaccine-card">
+                            <h4>Hepatitis B - 1st Dose</h4>
+                            <p>Hepatitis B prevention</p>
+                            <span class="vaccine-importance">Essential</span>
+                        </div>
+                        <div class="vaccine-card">
+                            <h4>OPV - 0 Dose</h4>
+                            <p>Polio prevention</p>
+                            <span class="vaccine-importance">Essential</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="6-weeks" class="tab-pane">
+                    <h3>Vaccines at 6 Weeks</h3>
+                    <div class="vaccine-grid">
+                        <div class="vaccine-card">
+                            <h4>DTwP/DTaP - 1st Dose</h4>
+                            <p>Diphtheria, Tetanus, Pertussis</p>
+                            <span class="vaccine-importance">Essential</span>
+                        </div>
+                        <div class="vaccine-card">
+                            <h4>IPV - 1st Dose</h4>
+                            <p>Polio (Injectable)</p>
+                            <span class="vaccine-importance">Essential</span>
+                        </div>
+                        <div class="vaccine-card">
+                            <h4>Hib - 1st Dose</h4>
+                            <p>Haemophilus influenzae type B</p>
+                            <span class="vaccine-importance">Essential</span>
+                        </div>
+                        <div class="vaccine-card">
+                            <h4>Hepatitis B - 2nd Dose</h4>
+                            <p>Hepatitis B</p>
+                            <span class="vaccine-importance">Essential</span>
+                        </div>
+                        <div class="vaccine-card">
+                            <h4>Rotavirus - 1st Dose</h4>
+                            <p>Rotavirus diarrhea prevention</p>
+                            <span class="vaccine-importance">Recommended</span>
+                        </div>
+                        <div class="vaccine-card">
+                            <h4>PCV - 1st Dose</h4>
+                            <p>Pneumococcal disease</p>
+                            <span class="vaccine-importance">Recommended</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More tab content for other age groups -->
+            </div>
+
+            <div class="vaccination-reminder">
+                <h3>Vaccination Reminder</h3>
+                <p>Set reminders for your child's next vaccination</p>
+                <div class="reminder-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="childName">Child's Name</label>
+                            <input type="text" id="childName" placeholder="Enter child's name">
+                        </div>
+                        <div class="form-group">
+                            <label for="nextVaccine">Next Vaccine Due</label>
+                            <select id="nextVaccine">
+                                <option value="">Select Vaccine</option>
+                                <option value="6-weeks">6 Weeks Vaccines</option>
+                                <option value="10-weeks">10 Weeks Vaccines</option>
+                                <option value="14-weeks">14 Weeks Vaccines</option>
+                                <option value="6-months">6 Months Vaccines</option>
+                                <option value="9-months">9 Months Vaccines</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="setVaccinationReminder()">
+                        <i class="fas fa-bell"></i>
+                        Set Reminder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pediatric Services -->
+    <section class="pediatric-services">
+        <div class="container">
+            <h2>Our Pediatric Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Well-Baby Checkup</h3>
+                    <p>Comprehensive health assessment for infants and children</p>
+                    <ul class="service-features">
+                        <li>Growth Monitoring</li>
+                        <li>Development Assessment</li>
+                        <li>Nutrition Guidance</li>
+                        <li>Vaccination</li>
+                    </ul>
+                    <div class="service-price">₹800 - ₹1200</div>
+                    <button class="btn-outline" onclick="bookService('well-baby-checkup')">Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>Vaccination Services</h3>
+                    <p>Complete immunization with certified vaccines</p>
+                    <ul class="service-features">
+                        <li>IAP Schedule Followed</li>
+                        <li>Pain-free Techniques</li>
+                        <li>Vaccine Record Maintenance</li>
+                        <li>Post-vaccination Care</li>
+                    </ul>
+                    <div class="service-price">Varies by Vaccine</div>
+                    <button class="btn-outline" onclick="bookService('vaccination')">Book Vaccination</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h3>Childhood Illness Care</h3>
+                    <p>Treatment for common childhood diseases</p>
+                    <ul class="service-features">
+                        <li>Fever Management</li>
+                        <li>Respiratory Infections</li>
+                        <li>Gastrointestinal Issues</li>
+                        <li>Skin Conditions</li>
+                    </ul>
+                    <div class="service-price">₹1000 - ₹2000</div>
+                    <button class="btn-outline" onclick="bookService('illness-care')">Consult Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Development Assessment</h3>
+                    <p>Monitoring developmental milestones</p>
+                    <ul class="service-features">
+                        <li>Milestone Tracking</li>
+                        <li>Early Intervention</li>
+                        <li>Parent Guidance</li>
+                        <li>Therapy Referral</li>
+                    </ul>
+                    <div class="service-price">₹1500 - ₹2500</div>
+                    <button class="btn-outline" onclick="bookService('development-assessment')">Book Assessment</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Pediatric Cardiology</h3>
+                    <p>Heart care for children with cardiac issues</p>
+                    <ul class="service-features">
+                        <li>Heart Murmur Evaluation</li>
+                        <li>Congenital Heart Disease</li>
+                        <li>ECG & Echo for Children</li>
+                        <li>Post-surgical Care</li>
+                    </ul>
+                    <div class="service-price">₹2000 - ₹5000</div>
+                    <button class="btn-outline" onclick="bookService('pediatric-cardiology')">Consult Specialist</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth"></i>
+                    </div>
+                    <h3>Pediatric Dentistry</h3>
+                    <p>Dental care specifically for children</p>
+                    <ul class="service-features">
+                        <li>Dental Checkup</li>
+                        <li>Cavity Treatment</li>
+                        <li>Orthodontic Consultation</li>
+                        <li>Preventive Care</li>
+                    </ul>
+                    <div class="service-price">₹500 - ₹2000</div>
+                    <button class="btn-outline" onclick="bookService('pediatric-dentistry')">Book Dental Visit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Tracker -->
+    <section class="growth-tracker">
+        <div class="container">
+            <h2>Child Growth Tracker</h2>
+            <p class="section-subtitle">Monitor your child's growth with WHO standards</p>
+            
+            <div class="tracker-container">
+                <div class="tracker-form">
+                    <h3>Enter Growth Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="trackerAge">Child's Age (months)</label>
+                            <input type="number" id="trackerAge" min="0" max="216" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="trackerWeight">Weight (kg)</label>
+                            <input type="number" id="trackerWeight" min="1" max="100" step="0.1" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="trackerHeight">Height (cm)</label>
+                            <input type="number" id="trackerHeight" min="30" max="200" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="trackerHead">Head Circumference (cm)</label>
+                            <input type="number" id="trackerHead" min="30" max="60" step="0.1">
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="analyzeGrowth()">
+                        <i class="fas fa-chart-line"></i>
+                        Analyze Growth
+                    </button>
+                </div>
+
+                <div class="tracker-results">
+                    <div id="growthResults">
+                        <div class="results-placeholder">
+                            <i class="fas fa-child"></i>
+                            <p>Enter your child's growth details to see analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="growth-charts">
+                <h3>Growth Percentile Charts</h3>
+                <div class="chart-tabs">
+                    <button class="chart-tab active" onclick="showGrowthChart('weight')">Weight</button>
+                    <button class="chart-tab" onclick="showGrowthChart('height')">Height</button>
+                    <button class="chart-tab" onclick="showGrowthChart('head')">Head Circumference</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pediatricians Section -->
+    <section class="pediatricians-section">
+        <div class="container">
+            <h2>Our Expert Pediatricians</h2>
+            <div class="pediatricians-filter">
+                <div class="filter-group">
+                    <label>Specialization:</label>
+                    <select id="specializationFilter">
+                        <option value="all">All Pediatricians</option>
+                        <option value="neonatology">Neonatology</option>
+                        <option value="cardiology">Pediatric Cardiology</option>
+                        <option value="neurology">Pediatric Neurology</option>
+                        <option value="dentistry">Pediatric Dentistry</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Experience:</label>
+                    <select id="experienceFilter">
+                        <option value="all">Any Experience</option>
+                        <option value="10">10+ Years</option>
+                        <option value="15">15+ Years</option>
+                        <option value="20">20+ Years</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pediatricians-grid" id="pediatriciansGrid">
+                <!-- Pediatricians will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Child Emergency Section -->
+    <section class="child-emergency">
+        <div class="container">
+            <div class="emergency-content">
+                <div class="emergency-info">
+                    <h2>Child Emergency Alert</h2>
+                    <p class="emergency-subtitle">If your child shows these symptoms, seek immediate medical help:</p>
+                    <div class="emergency-symptoms">
+                        <div class="symptom-alert">
+                            <i class="fas fa-temperature-high"></i>
+                            <div>
+                                <h4>High Fever</h4>
+                                <p>Above 104°F in infants, with lethargy</p>
+                            </div>
+                        </div>
+                        <div class="symptom-alert">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <h4>Breathing Difficulty</h4>
+                                <p>Rapid breathing, chest retractions</p>
+                            </div>
+                        </div>
+                        <div class="symptom-alert">
+                            <i class="fas fa-ban"></i>
+                            <div>
+                                <h4>No Urine Output</h4>
+                                <p>No wet diapers for 6-8 hours</p>
+                            </div>
+                        </div>
+                        <div class="symptom-alert">
+                            <i class="fas fa-person-falling"></i>
+                            <div>
+                                <h4>Seizures</h4>
+                                <p>Convulsions or uncontrolled movements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="emergency-actions">
+                    <div class="emergency-contacts">
+                        <div class="emergency-contact">
+                            <i class="fas fa-ambulance"></i>
+                            <div>
+                                <h4>Pediatric Ambulance</h4>
+                                <p class="number">108 / 102</p>
+                            </div>
+                        </div>
+                        <div class="emergency-contact">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>24/7 Pediatric Helpline</h4>
+                                <p class="number">1800-CHILD-00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-emergency-large" onclick="callPediatricEmergency()">
+                        <i class="fas fa-phone-alt"></i>
+                        Call Pediatric Emergency
+                    </button>
+                    <button class="btn-outline" onclick="showChildFirstAid()">
+                        <i class="fas fa-first-aid"></i>
+                        Child First Aid Guide
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Booking Section -->
+    <section class="consultation-booking" id="consultationSection">
+        <div class="container">
+            <h2>Book Pediatric Consultation</h2>
+            <div class="booking-options">
+                <div class="booking-card">
+                    <div class="booking-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Consultation</h3>
+                    <p>Consult with pediatricians online</p>
+                    <div class="booking-price">₹1000</div>
+                    <ul class="booking-features">
+                        <li>30-minute detailed consultation</li>
+                        <li>Prescription & advice</li>
+                        <li>Growth assessment</li>
+                        <li>Follow-up schedule</li>
+                    </ul>
+                    <button class="btn-primary" onclick="bookPediatricConsultation('video')">
+                        Book Video Consult
+                    </button>
+                </div>
+
+                <div class="booking-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="booking-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Clinic Visit</h3>
+                    <p>In-person consultation with checkup</p>
+                    <div class="booking-price">₹1200</div>
+                    <ul class="booking-features">
+                        <li>Complete physical examination</li>
+                        <li>Growth parameters check</li>
+                        <li>Vaccination if due</li>
+                        <li>Detailed diagnosis</li>
+                    </ul>
+                    <button class="btn-primary" onclick="bookPediatricConsultation('clinic')">
+                        Book Clinic Visit
+                    </button>
+                </div>
+
+                <div class="booking-card">
+                    <div class="booking-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Visit</h3>
+                    <p>Pediatrician visit at your home</p>
+                    <div class="booking-price">₹2000</div>
+                    <ul class="booking-features">
+                        <li>Senior pediatrician visit</li>
+                        <li>Basic checkup at home</li>
+                        <li>Comfortable for child</li>
+                        <li>Emergency guidance</li>
+                    </ul>
+                    
+                    <button class="btn-primary" onclick="bookPediatricConsultation('home')">
+                        Book Home Visit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals and JavaScript -->
+    <!-- Similar modals as cardiology page but customized for pediatric care -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="pediatric.js"></script>
+</body>
+</html>

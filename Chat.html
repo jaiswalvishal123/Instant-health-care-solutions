@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Assistant - QuickCare</title>
+    <link rel="stylesheet" href="chatbot.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>QuickCare</span>
+            </div>
+            <ul class="nav-menu">
+               <!--- <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>-->
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="doctors.html" class="nav-link"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link"><i class="fas fa-hand-holding-medical"></i> Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="emergency-btn">
+                    <i class="fas fa-ambulance"></i>
+                    Emergency
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <!-- Chatbot Header -->
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-info">
+                <h3>Health Assistant</h3>
+                <p>Online • Ready to help</p>
+            </div>
+            <div class="chatbot-actions">
+                <button class="btn-icon" onclick="clearChat()" title="Clear Chat">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button class="btn-icon" onclick="toggleChat()" title="Minimize">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be loaded here -->
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions" id="quickActions">
+            <button class="quick-btn" onclick="sendQuickMessage('Book doctor appointment')">
+                <i class="fas fa-calendar-check"></i>
+                Book Appointment
+            </button>
+            <button class="quick-btn" onclick="sendQuickMessage('Find doctors near me')">
+                <i class="fas fa-user-md"></i>
+                Find Doctors
+            </button>
+            <button class="quick-btn" onclick="sendQuickMessage('Medicine delivery')">
+                <i class="fas fa-pills"></i>
+                Order Medicines
+            </button>
+            <button class="quick-btn" onclick="sendQuickMessage('Emergency help')">
+                <i class="fas fa-ambulance"></i>
+                Emergency
+            </button>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-container">
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type your health concern..." onkeypress="handleKeyPress(event)">
+                <button class="btn-send" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-actions">
+                <button class="btn-action" onclick="showSymptomsHelper()">
+                    <i class="fas fa-stethoscope"></i>
+                    Symptoms
+                </button>
+                <button class="btn-action" onclick="showMedicationHelper()">
+                    <i class="fas fa-pills"></i>
+                    Medicines
+                </button>
+                <button class="btn-action" onclick="showEmergencyHelper()">
+                    <i class="fas fa-first-aid"></i>
+                    First Aid
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Symptoms Helper Modal -->
+    <div class="modal" id="symptomsModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeSymptomsModal()">&times;</span>
+            <h3>Describe Your Symptoms</h3>
+            <div class="symptoms-grid">
+                <div class="symptom-category">
+                    <h4>Common Symptoms</h4>
+                    <div class="symptom-buttons">
+                        <button class="symptom-btn" onclick="selectSymptom('fever')">Fever</button>
+                        <button class="symptom-btn" onclick="selectSymptom('headache')">Headache</button>
+                        <button class="symptom-btn" onclick="selectSymptom('cough')">Cough</button>
+                        <button class="symptom-btn" onclick="selectSymptom('cold')">Cold</button>
+                        <button class="symptom-btn" onclick="selectSymptom('stomach pain')">Stomach Pain</button>
+                        <button class="symptom-btn" onclick="selectSymptom('body pain')">Body Pain</button>
+                    </div>
+                </div>
+                <div class="symptom-category">
+                    <h4>Severity</h4>
+                    <div class="symptom-buttons">
+                        <button class="symptom-btn mild" onclick="setSeverity('mild')">Mild</button>
+                        <button class="symptom-btn moderate" onclick="setSeverity('moderate')">Moderate</button>
+                        <button class="symptom-btn severe" onclick="setSeverity('severe')">Severe</button>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="analyzeSymptoms()">Analyze Symptoms</button>
+        </div>
+    </div>
+
+    <!-- Emergency Helper Modal -->
+    <div class="modal" id="emergencyModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeEmergencyModal()">&times;</span>
+            <h3>Emergency Assistance</h3>
+            <div class="emergency-options">
+                <div class="emergency-card" onclick="handleEmergency('heart attack')">
+                    <i class="fas fa-heartbeat"></i>
+                    <h4>Heart Attack</h4>
+                    <p>Immediate first aid steps</p>
+                </div>
+                <div class="emergency-card" onclick="handleEmergency('accident')">
+                    <i class="fas fa-car-crash"></i>
+                    <h4>Accident</h4>
+                    <p>Emergency response</p>
+                </div>
+                <div class="emergency-card" onclick="handleEmergency('breathing')">
+                    <i class="fas fa-lungs"></i>
+                    <h4>Breathing Problem</h4>
+                    <p>Respiratory emergency</p>
+                </div>
+                <div class="emergency-card" onclick="handleEmergency('allergy')">
+                    <i class="fas fa-allergies"></i>
+                    <h4>Severe Allergy</h4>
+                    <p>Allergic reaction</p>
+                </div>
+            </div>
+            <div class="emergency-contact">
+                <button class="btn-emergency" onclick="callEmergency()">
+                    <i class="fas fa-phone-alt"></i>
+                    Call Emergency: 108
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Chatbot Button -->
+    <button class="floating-chatbot-btn" onclick="toggleChat()">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>

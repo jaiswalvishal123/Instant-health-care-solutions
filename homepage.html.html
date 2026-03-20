@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text, Background & Border Styling</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: white;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .card-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-header i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .text-card .card-header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #fff;
+        }
+        
+        .background-card .card-header {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            color: #fff;
+        }
+        
+        .border-card .card-header {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #333;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            margin: 20px 0 10px;
+            color: #3498db;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .example-box {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .text-examples {
+            background: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .background-examples {
+            background: #f8f9fa;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .border-examples {
+            background: #f8f9fa;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .text-sample {
+            margin: 10px 0;
+            padding: 10px;
+        }
+        
+        .bg-sample {
+            height: 80px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+        
+        .border-sample {
+            height: 80px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        .code {
+            font-family: 'Courier New', monospace;
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .tag {
+            color: #cf63ed;
+        }
+        
+        .attribute {
+            color: #b8b6fb48;
+        }
+        
+        .value {
+            color: #faf089;
+        }
+        
+        .content {
+            color: #a0aec0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Text, Background & Border Styling</h1>
+            <p class="subtitle">Learn how to use CSS to style text, backgrounds, and borders with practical examples</p>
+        </header>
+        
+        <div class="card-section">
+            <!-- Text Styling Card -->
+            <div class="card text-card">
+                <div class="card-header">
+                    <i class="fas fa-text-height"></i>
+                    <h2>Text Styling</h2>
+                </div>
+                <div class="card-body">
+                    <div class="text-examples">
+                        <h3>Text Properties</h3>
+                        <p>CSS provides numerous properties to style text:</p>
+                        
+                        <div class="text-sample" style="color: #e74c3c; font-weight: bold;">
+                            Colored and bold text
+                        </div>
+                        
+                        <div class="text-sample" style="font-family: 'Courier New', monospace;">
+                            Monospace font family
+                        </div>
+                        
+                        <div class="text-sample" style="text-decoration: underline;">
+                            Underlined text
+                        </div>
+                        
+                        <div class="text-sample" style="text-transform: uppercase; letter-spacing: 2px;">
+                            Uppercase with letter spacing
+                        </div>
+                        
+                        <div class="text-sample" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                            Text with shadow effect
+                        </div>
+                    </div>
+                    
+                    <h3>CSS Code Example</h3>
+                    <div class="code">
+                        <pre><code><span class="tag">p</span> {
+    <span class="attribute">color</span>: <span class="value">#2c3e50</span>;
+    <span class="attribute">font-family</span>: <span class="value">'Arial', sans-serif</span>;
+    <span class="attribute">font-size</span>: <span class="value">16px</span>;
+    <span class="attribute">line-height</span>: <span class="value">1.6</span>;
+    <span class="attribute">text-align</span>: <span class="value">justify</span>;
+    <span class="attribute">text-transform</span>: <span class="value">none</span>;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background Styling Card -->
+            <div class="card background-card">
+                <div class="card-header">
+                    <i class="fas fa-image"></i>
+                    <h2>Background Styling</h2>
+                </div>
+                <div class="card-body">
+                    <div class="background-examples">
+                        <h3>Background Properties</h3>
+                        <p>CSS allows various background customizations:</p>
+                        
+                        <div class="bg-sample" style="background-color: #3498db;">
+                            Solid color background
+                        </div>
+                        
+                        <div class="bg-sample" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);">
+                            Gradient background
+                        </div>
+                        
+                        <div class="bg-sample" style="background: url('https://via.placeholder.com/300/ff7e5f/ffffff?text=Pattern') center/cover;">
+                            Image background (placeholder)
+                        </div>
+                    </div>
+                    
+                    <h3>CSS Code Example</h3>
+                    <div class="code">
+                        <pre><code><span class="tag">.element</span> {
+    <span class="attribute">background-color</span>: <span class="value">#3498db</span>;
+    <span class="attribute">background-image</span>: <span class="value">url('image.jpg')</span>;
+    <span class="attribute">background-size</span>: <span class="value">cover</span>;
+    <span class="attribute">background-position</span>: <span class="value">center</span>;
+    <span class="attribute">background-repeat</span>: <span class="value">no-repeat</span>;
+}
+
+<span class="comment">/* Shorthand */</span>
+<span class="tag">.element</span> {
+    <span class="attribute">background</span>: <span class="value">#3498db url('image.jpg') center/cover no-repeat</span>;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Border Styling Card -->
+            <div class="card border-card">
+                <div class="card-header">
+                    <i class="fas fa-border-all"></i>
+                    <h2>Border Styling</h2>
+                </div>
+                <div class="card-body">
+                    <div class="border-examples">
+                        <h3>Border Properties</h3>
+                        <p>CSS offers multiple ways to style borders:</p>
+                        
+                        <div class="border-sample" style="border: 3px solid #3498db;">
+                            Solid border
+                        </div>
+                        
+                        <div class="border-sample" style="border: 2px dashed #e74c3c;">
+                            Dashed border
+                        </div>
+                        
+                        <div class="border-sample" style="border: 4px double #2ecc71;">
+                            Double border
+                        </div>
+                        
+                        <div class="border-sample" style="border: 3px dotted #f39c12; border-radius: 15px;">
+                            Rounded dotted border
+                        </div>
+                    </div>
+                    
+                    <h3>CSS Code Example</h3>
+                    <div class="code">
+                        <pre><code><span class="tag">.element</span> {
+    <span class="attribute">border-width</span>: <span class="value">2px</span>;
+    <span class="attribute">border-style</span>: <span class="value">solid</span>;
+    <span class="attribute">border-color</span>: <span class="value">#3498db</span>;
+    <span class="attribute">border-radius</span>: <span class="value">8px</span>;
+}
+
+<span class="comment">/* Shorthand */</span>
+<span class="tag">.element</span> {
+    <span class="attribute">border</span>: <span class="value">2px solid #3498db</span>;
+    <span class="attribute">border-radius</span>: <span class="value">8px</span>;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Created with ❤️ for web developers | &copy; 2023 Styling Examples</p>
+            <p>Practice these techniques to enhance your web design skills!</p>
+        </footer>
+    </div>
+</body>
+</html>

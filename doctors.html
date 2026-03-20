@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors - QuickCare</title>
+    <link rel="stylesheet" href="doctors.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>QuickCare</span>
+            </div>
+            <ul class="nav-menu">
+              <!----  <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="doctors.html" class="nav-link active"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link"><i class="fas fa-hand-holding-medical"></i> Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            -->    </ul>
+            <div class="nav-actions">
+               <button class="emergency-btn">
+                    <i class="fas fa-ambulance"></i>
+                    Emergency
+                </button>
+            </div> 
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Doctors Hero Section -->
+    <section class="doctors-hero">
+        <div class="hero-container">
+            <h1>Find the Best Doctors</h1>
+            <p>Book appointments with experienced healthcare professionals. 1000+ verified doctors across 20+ specialties.</p>
+            
+            <!-- Search and Filter Section -->
+            <div class="search-filters">
+                <div class="search-box">
+                    <input type="text" placeholder="Search doctors, specialties, symptoms...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filter-options">
+                    <select id="speciality">
+                        <option value="">All Specialities</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="neurology">Neurology</option>
+                        <option value="pediatrics">Pediatrics</option>
+                        <option value="orthopedics">Orthopedics</option>
+                        <option value="dermatology">Dermatology</option>
+                        <option value="gynecology">Gynecology</option>
+                    </select>
+                    
+                    <select id="experience">
+                        <option value="">Any Experience</option>
+                        <option value="5">5+ Years</option>
+                        <option value="10">10+ Years</option>
+                        <option value="15">15+ Years</option>
+                    </select>
+                    
+                    <select id="availability">
+                        <option value="">Any Availability</option>
+                        <option value="today">Today</option>
+                        <option value="tomorrow">Tomorrow</option>
+                        <option value="week">This Week</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Listing Section -->
+    <section class="doctors-listing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expert Doctors</h2>
+                <p>Verified and experienced medical professionals</p>
+            </div>
+
+            <div class="doctors-grid">
+                <!-- Doctor 1: Cardiologist -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop" alt="Dr. Sharma">
+                        <div class="online-status online"></div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Rajesh Sharma</h3>
+                        <p class="speciality">Cardiologist</p>
+                        <p class="experience">15+ years experience</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5 (1,234 reviews)</span>
+                        </div>
+                        <div class="hospital">
+                            <i class="fas fa-hospital"></i>
+                            Apollo Hospital, Delhi
+                        </div>
+                        <div class="fees">
+                            <strong>Consultation: ₹800</strong>
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-primary book-consultation">
+                            <i class="fas fa-video"></i>
+                            Video Consult
+                        </button>
+                        <button class="btn-outline book-appointment">
+                            <i class="fas fa-calendar-check"></i>
+                            Clinic Visit
+                        </button>
+                        <button class="btn-text view-profile">
+                            View Profile
+                        </button>
+                    </div>
+                    <div class="availability">
+                        <span class="available">Available Today</span>
+                    </div>
+                </div>
+
+                <!-- Doctor 2: Neurologist -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop" alt="Dr. Patel">
+                        <div class="online-status offline"></div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Priya Patel</h3>
+                        <p class="speciality">Neurologist</p>
+                        <p class="experience">12+ years experience</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.8 (892 reviews)</span>
+                        </div>
+                        <div class="hospital">
+                            <i class="fas fa-hospital"></i>
+                            Max Hospital, Mumbai
+                        </div>
+                        <div class="fees">
+                            <strong>Consultation: ₹1,200</strong>
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-primary book-consultation">
+                            <i class="fas fa-video"></i>
+                            Video Consult
+                        </button>
+                        <button class="btn-outline book-appointment">
+                            <i class="fas fa-calendar-check"></i>
+                            Clinic Visit
+                        </button>
+                        <button class="btn-text view-profile">
+                            View Profile
+                        </button>
+                    </div>
+                    <div class="availability">
+                        <span class="available">Available Tomorrow</span>
+                    </div>
+                </div>
+
+                <!-- Doctor 3: Pediatrician -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1594824947933-d0501ba2fe65?w=400&h=400&fit=crop" alt="Dr. Kumar">
+                        <div class="online-status online"></div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Anil Kumar</h3>
+                        <p class="speciality">Pediatrician</p>
+                        <p class="experience">18+ years experience</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9 (2,156 reviews)</span>
+                        </div>
+                        <div class="hospital">
+                            <i class="fas fa-hospital"></i>
+                            Fortis Hospital, Bangalore
+                        </div>
+                        <div class="fees">
+                            <strong>Consultation: ₹600</strong>
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-primary book-consultation">
+                            <i class="fas fa-video"></i>
+                            Video Consult
+                        </button>
+                        <button class="btn-outline book-appointment">
+                            <i class="fas fa-calendar-check"></i>
+                            Clinic Visit
+                        </button>
+                        <button class="btn-text view-profile">
+                            View Profile
+                        </button>
+                    </div>
+                    <div class="availability">
+                        <span class="available">Available Today</span>
+                    </div>
+                </div>
+
+                <!-- Doctor 4: Orthopedic -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop" alt="Dr. Gupta">
+                        <div class="online-status online"></div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sanjay Gupta</h3>
+                        <p class="speciality">Orthopedic Surgeon</p>
+                        <p class="experience">20+ years experience</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.6 (1,789 reviews)</span>
+                        </div>
+                        <div class="hospital">
+                            <i class="fas fa-hospital"></i>
+                            AIIMS, Delhi
+                        </div>
+                        <div class="fees">
+                            <strong>Consultation: ₹1,000</strong>
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-primary book-consultation">
+                            <i class="fas fa-video"></i>
+                            Video Consult
+                        </button>
+                        <button class="btn-outline book-appointment">
+                            <i class="fas fa-calendar-check"></i>
+                            Clinic Visit
+                        </button>
+                        <button class="btn-text view-profile">
+                            View Profile
+                        </button>
+                    </div>
+                    <div class="availability">
+                        <span class="available">Available Today</span>
+                    </div>
+                </div>
+
+                <!-- Doctor 5: Dermatologist -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop" alt="Dr. Mehta">
+                        <div class="online-status offline"></div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Neha Mehta</h3>
+                        <p class="speciality">Dermatologist</p>
+                        <p class="experience">8+ years experience</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.7 (945 reviews)</span>
+                        </div>
+                        <div class="hospital">
+                            <i class="fas fa-hospital"></i>
+                            Artemis Hospital, Gurgaon
+                        </div>
+                        <div class="fees">
+                            <strong>Consultation: ₹900</strong>
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-primary book-consultation">
+                            <i class="fas fa-video"></i>
+                            Video Consult
+                        </button>
+                        <button class="btn-outline book-appointment">
+                            <i class="fas fa-calendar-check"></i>
+                            Clinic Visit
+                        </button>
+                        <button class="btn-text view-profile">
+                            View Profile
+                        </button>
+                    </div>
+                    <div class="availability">
+                        <span class="not-available">Available Next Week</span>
+                    </div>
+                </div>
+
+                <!-- Doctor 6: Gynecologist -->
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://images.unsplash.com/photo-1594824947933-d0501ba2fe65?w=400&h=400&fit=crop" alt="Dr. Reddy">
+                        <div class="online-status online"></div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sunita Reddy</h3>
+                        <p class="speciality">Gynecologist</p>
+                        <p class="experience">14+ years experience</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5 (1,567 reviews)</span>
+                        </div>
+                        <div class="hospital">
+                            <i class="fas fa-hospital"></i>
+                            Manipal Hospital, Bangalore
+                        </div>
+                        <div class="fees">
+                            <strong>Consultation: ₹750</strong>
+                        </div>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="btn-primary book-consultation">
+                            <i class="fas fa-video"></i>
+                            Video Consult
+                        </button>
+                        <button class="btn-outline book-appointment">
+                            <i class="fas fa-calendar-check"></i>
+                            Clinic Visit
+                        </button>
+                        <button class="btn-text view-profile">
+                            View Profile
+                        </button>
+                    </div>
+                    <div class="availability">
+                        <span class="available">Available Today</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more">
+                <button class="btn-outline btn-large">Load More Doctors</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+<section class="specialties-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Browse by Specialization</h2>
+            <p>Find doctors by medical specialties</p>
+        </div>
+
+        <div class="specialties-grid">
+            <div class="specialty-card" data-specialty="cardiology">
+                <i class="fas fa-heart"></i>
+                <h4>Cardiology</h4>
+                <p>Heart specialists</p>
+                <span class="doctor-count">45 Doctors</span>
+            </div>
+            <div class="specialty-card" data-specialty="neurology">
+                <i class="fas fa-brain"></i>
+                <h4>Neurology</h4>
+                <p>Brain & nerve care</p>
+                <span class="doctor-count">32 Doctors</span>
+            </div>
+            <div class="specialty-card" data-specialty="pediatrics">
+                <i class="fas fa-baby"></i>
+                <h4>Pediatrics</h4>
+                <p>Child healthcare</p>
+                <span class="doctor-count">67 Doctors</span>
+            </div>
+            <div class="specialty-card" data-specialty="orthopedics">
+                <i class="fas fa-bone"></i>
+                <h4>Orthopedics</h4>
+                <p>Bone & joint care</p>
+                <span class="doctor-count">54 Doctors</span>
+            </div>
+            <div class="specialty-card" data-specialty="dermatology">
+                <i class="fas fa-allergies"></i>
+                <h4>Dermatology</h4>
+                <p>Skin & hair care</p>
+                <span class="doctor-count">38 Doctors</span>
+            </div>
+            <div class="specialty-card" data-specialty="gynecology">
+                <i class="fas fa-female"></i>
+                <h4>Gynecology</h4>
+                <p>Women's health</p>
+                <span class="doctor-count">42 Doctors</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filtered Doctors Section (Initially Hidden) -->
+<section class="filtered-doctors" id="filteredDoctors" style="display: none;">
+    <div class="container">
+        <div class="filtered-header">
+            <button class="back-to-specialties btn-outline">
+                <i class="fas fa-arrow-left"></i>
+                Back to Specializations
+            </button>
+            <h2 id="specialtyTitle">Cardiology Specialists</h2>
+            <p id="specialtyDescription">Heart care specialists</p>
+        </div>
+        
+        <div class="filtered-doctors-grid" id="filteredDoctorsGrid">
+            <!-- Doctors will be dynamically loaded here -->
+        </div>
+    </div>
+</section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Doctors?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Verified Doctors</h4>
+                    <p>All doctors are verified with proper medical credentials and licenses</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>24/7 Availability</h4>
+                    <p>Book appointments anytime with instant confirmation</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h4>Affordable Fees</h4>
+                    <p>Transparent pricing with no hidden charges</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h4>Multiple Options</h4>
+                    <p>Choose between video consultation or clinic visit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Can't Find Your Doctor?</h2>
+            <p>We'll help you find the right specialist for your needs</p>
+            <div class="cta-buttons">
+                <button class="btn-primary btn-large">
+                    <i class="fas fa-headset"></i>
+                    Talk to Health Advisor
+                </button>
+                <button class="btn-secondary btn-large">
+                    <i class="fas fa-phone-alt"></i>
+                    Call: 1800-123-456
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="doctors.js"></script>
+</body>
+</html>

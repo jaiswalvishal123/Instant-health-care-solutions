@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiology Services - QuickCare</title>
+    <link rel="stylesheet" href="cardiology.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>QuickCare</span>
+            </div>
+            <ul class="nav-menu">
+             <!----   <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="doctors.html" class="nav-link"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link"><i class="fas fa-hand-holding-medical"></i> Services</a></li>
+                <li class="nav-item"><a href="cardiology.html" class="nav-link active"><i class="fas fa-heart"></i> Cardiology</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-phone-alt"></i> Contact</a></li> ---->
+            </ul>
+            <div class="nav-actions">
+                <button class="emergency-btn">
+                    <i class="fas fa-ambulance"></i>
+                    Emergency
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cardiology Hero Section -->
+    <section class="cardiology-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Cardiology & Heart Care</h1>
+                <p class="hero-subtitle">Expert cardiac care for your heart health</p>
+                <p class="hero-description">
+                    Comprehensive heart care services with advanced diagnostics, treatment, 
+                    and preventive care by experienced cardiologists.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Heart Surgeries</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Cardiologists</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Cath Lab</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="openEmergencyCardiac()">
+                        <i class="fas fa-heartbeat"></i>
+                        Cardiac Emergency
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToConsultation()">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Consultation
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=500&fit=crop" alt="Cardiology Care">
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardiac Symptoms Checker -->
+    <section class="cardiac-symptoms">
+        <div class="container">
+            <h2>Cardiac Symptoms Checker</h2>
+            <p class="section-subtitle">Describe your heart-related symptoms</p>
+            
+            <div class="symptoms-form">
+                <div class="form-section">
+                    <h3>Cardiac Symptoms</h3>
+                    <div class="symptoms-grid">
+                        <div class="symptom-option" data-symptom="chest-pain">
+                            <i class="fas fa-heart-crack"></i>
+                            <span>Chest Pain</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="breathlessness">
+                            <i class="fas fa-wind"></i>
+                            <span>Breathlessness</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="palpitations">
+                            <i class="fas fa-heart-pulse"></i>
+                            <span>Palpitations</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="dizziness">
+                            <i class="fas fa-dizzy"></i>
+                            <span>Dizziness</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="swelling">
+                            <i class="fas fa-hand-holding-medical"></i>
+                            <span>Swelling in Legs</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="fatigue">
+                            <i class="fas fa-bed"></i>
+                            <span>Extreme Fatigue</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="sweating">
+                            <i class="fas fa-temperature-high"></i>
+                            <span>Cold Sweats</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="arm-pain">
+                            <i class="fas fa-hand"></i>
+                            <span>Arm/Jaw Pain</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Symptom Details</h3>
+                    <div class="form-group">
+                        <label for="symptomDuration">How long have you had these symptoms?</label>
+                        <select id="symptomDuration">
+                            <option value="">Select Duration</option>
+                            <option value="minutes">Few minutes</option>
+                            <option value="hours">Few hours</option>
+                            <option value="days">Few days</option>
+                            <option value="weeks">Few weeks</option>
+                            <option value="months">Months</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="symptomSeverity">Severity Level</label>
+                        <div class="severity-options">
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="mild">
+                                <span class="severity-label mild">Mild</span>
+                            </label>
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="moderate">
+                                <span class="severity-label moderate">Moderate</span>
+                            </label>
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="severe">
+                                <span class="severity-label severe">Severe</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cardiacHistory">Cardiac History</label>
+                        <select id="cardiacHistory">
+                            <option value="">Select if applicable</option>
+                            <option value="none">No cardiac history</option>
+                            <option value="hypertension">High BP</option>
+                            <option value="diabetes">Diabetes</option>
+                            <option value="cholesterol">High Cholesterol</option>
+                            <option value="previous-heart-attack">Previous Heart Issue</option>
+                            <option value="family-history">Family History</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" placeholder="Describe your symptoms in detail, any triggers, when it occurs..." rows="4"></textarea>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn-large" onclick="analyzeCardiacSymptoms()">
+                    <i class="fas fa-heart-pulse"></i>
+                    Analyze Cardiac Symptoms
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardiology Services -->
+    <section class="cardiology-services">
+        <div class="container">
+            <h2>Our Cardiology Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Cardiac Consultation</h3>
+                    <p>Comprehensive heart health assessment and diagnosis</p>
+                    <ul class="service-features">
+                        <li>ECG & Stress Test</li>
+                        <li>Echo Cardiography</li>
+                        <li>Blood Pressure Management</li>
+                        <li>Risk Assessment</li>
+                    </ul>
+                    <div class="service-price">₹800 - ₹1500</div>
+                    <button class="btn-outline" onclick="bookService('cardiac-consultation')">Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart-circle-check"></i>
+                    </div>
+                    <h3>Echo Cardiogram</h3>
+                    <p>Ultrasound imaging of the heart structure and function</p>
+                    <ul class="service-features">
+                        <li>2D Echo</li>
+                        <li>Color Doppler</li>
+                        <li>Heart Valve Assessment</li>
+                        <li>Same Day Report</li>
+                    </ul>
+                    <div class="service-price">₹2000 - ₹3500</div>
+                    <button class="btn-outline" onclick="bookService('echo-cardiogram')">Book Test</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart-circle-bolt"></i>
+                    </div>
+                    <h3>Stress Test</h3>
+                    <p>Evaluate heart performance under physical stress</p>
+                    <ul class="service-features">
+                        <li>Treadmill Test</li>
+                        <li>ECG Monitoring</li>
+                        <li>Blood Pressure Tracking</li>
+                        <li>Expert Analysis</li>
+                    </ul>
+                    <div class="service-price">₹1500 - ₹2500</div>
+                    <button class="btn-outline" onclick="bookService('stress-test')">Book Test</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck-medical"></i>
+                    </div>
+                    <h3>24/7 Cardiac Emergency</h3>
+                    <p>Immediate care for heart attacks and cardiac emergencies</p>
+                    <ul class="service-features">
+                        <li>Emergency Cath Lab</li>
+                        <li>Ambulance Service</li>
+                        <li>Critical Care Unit</li>
+                        <li>Expert Cardiologists</li>
+                    </ul>
+                    <button class="btn-emergency" onclick="openEmergencyCardiac()">
+                        <i class="fas fa-phone-alt"></i>
+                        Emergency Help
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Angioplasty & Stenting</h3>
+                    <p>Minimally invasive procedure to open blocked arteries</p>
+                    <ul class="service-features">
+                        <li>Coronary Angiography</li>
+                        <li>Stent Placement</li>
+                        <li>Minimal Hospital Stay</li>
+                        <li>Post-procedure Care</li>
+                    </ul>
+                    <div class="service-price">₹1,50,000 - ₹3,00,000</div>
+                    <button class="btn-outline" onclick="bookService('angioplasty')">Get Quote</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart-circle-plus"></i>
+                    </div>
+                    <h3>Pacemaker Implantation</h3>
+                    <p>Advanced treatment for heart rhythm disorders</p>
+                    <ul class="service-features">
+                        <li>Pacemaker Surgery</li>
+                        <li>Regular Follow-up</li>
+                        <li>Remote Monitoring</li>
+                        <li>Battery Replacement</li>
+                    </ul>
+                    <div class="service-price">₹2,00,000 - ₹5,00,000</div>
+                    <button class="btn-outline" onclick="bookService('pacemaker')">Consult Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardiologists Section -->
+    <section class="cardiologists-section">
+        <div class="container">
+            <h2>Our Expert Cardiologists</h2>
+            <div class="cardiologists-filter">
+                <div class="filter-group">
+                    <label>Specialization:</label>
+                    <select id="specializationFilter">
+                        <option value="all">All Cardiologists</option>
+                        <option value="interventional">Interventional</option>
+                        <option value="non-invasive">Non-Invasive</option>
+                        <option value="electrophysiology">Electrophysiology</option>
+                        <option value="pediatric">Pediatric Cardiology</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Experience:</label>
+                    <select id="experienceFilter">
+                        <option value="all">Any Experience</option>
+                        <option value="10">10+ Years</option>
+                        <option value="15">15+ Years</option>
+                        <option value="20">20+ Years</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="cardiologists-grid" id="cardiologistsGrid">
+                <!-- Cardiologists will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cardiac Emergency Section -->
+    <section class="cardiac-emergency">
+        <div class="container">
+            <div class="emergency-content">
+                <div class="emergency-info">
+                    <h2>Cardiac Emergency Alert</h2>
+                    <p class="emergency-subtitle">If you experience these symptoms, seek immediate medical help:</p>
+                    <div class="emergency-symptoms">
+                        <div class="symptom-alert">
+                            <i class="fas fa-heart-crack"></i>
+                            <div>
+                                <h4>Chest Pain or Discomfort</h4>
+                                <p>Pressure, squeezing, or pain in chest</p>
+                            </div>
+                        </div>
+                        <div class="symptom-alert">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <h4>Shortness of Breath</h4>
+                                <p>Difficulty breathing with chest discomfort</p>
+                            </div>
+                        </div>
+                        <div class="symptom-alert">
+                            <i class="fas fa-hand"></i>
+                            <div>
+                                <h4>Arm/Jaw/Back Pain</h4>
+                                <p>Pain radiating to arms, jaw, or back</p>
+                            </div>
+                        </div>
+                        <div class="symptom-alert">
+                            <i class="fas fa-temperature-high"></i>
+                            <div>
+                                <h4>Cold Sweats & Nausea</h4>
+                                <p>Breaking out in cold sweat, nausea, lightheadedness</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="emergency-actions">
+                    <div class="emergency-contacts">
+                        <div class="emergency-contact">
+                            <i class="fas fa-ambulance"></i>
+                            <div>
+                                <h4>Cardiac Ambulance</h4>
+                                <p class="number">108 / 102</p>
+                            </div>
+                        </div>
+                        <div class="emergency-contact">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>24/7 Cardiac Helpline</h4>
+                                <p class="number">1800-HEART-00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-emergency-large" onclick="callCardiacEmergency()">
+                        <i class="fas fa-phone-alt"></i>
+                        Call Cardiac Emergency Now
+                    </button>
+                    <button class="btn-outline" onclick="showFirstAidGuide()">
+                        <i class="fas fa-first-aid"></i>
+                        Heart Attack First Aid
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Booking Section -->
+    <section class="consultation-booking" id="consultationSection">
+        <div class="container">
+            <h2>Book Cardiology Consultation</h2>
+            <div class="booking-options">
+                <div class="booking-card">
+                    <div class="booking-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Consultation</h3>
+                    <p>Consult with senior cardiologists online</p>
+                    <div class="booking-price">₹1200</div>
+                    <ul class="booking-features">
+                        <li>30-minute detailed consultation</li>
+                        <li>Prescription & advice</li>
+                        <li>Medical record review</li>
+                        <li>Follow-up schedule</li>
+                    </ul>
+                    <button class="btn-primary" onclick="bookCardiologyConsultation('video')">
+                        Book Video Consult
+                    </button>
+                </div>
+
+                <div class="booking-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="booking-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Clinic Visit</h3>
+                    <p>In-person consultation with tests</p>
+                    <div class="booking-price">₹1500</div>
+                    <ul class="booking-features">
+                        <li>Complete physical examination</li>
+                        <li>ECG included</li>
+                        <li>BP monitoring</li>
+                        <li>Detailed diagnosis</li>
+                    </ul>
+                    <button class="btn-primary" onclick="bookCardiologyConsultation('clinic')">
+                        Book Clinic Visit
+                    </button>
+                </div>
+
+                <div class="booking-card">
+                    <div class="booking-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Visit</h3>
+                    <p>Cardiologist visit at your home</p>
+                    <div class="booking-price">₹2500</div>
+                    <ul class="booking-features">
+                        <li>Senior cardiologist visit</li>
+                        <li>Portable ECG at home</li>
+                        <li>Medication management</li>
+                        <li>Emergency guidance</li>
+                    </ul>
+                    <button class="btn-primary" onclick="bookCardiologyConsultation('home')">
+                        Book Home Visit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Cardiology Consultation</h2>
+            
+            <div class="booking-steps">
+                <div class="step active" id="step1">
+                    <h3>Select Consultation Type</h3>
+                    <div class="consultation-type-selection">
+                        <div class="type-option" id="typeVideo">
+                            <i class="fas fa-video"></i>
+                            <div>
+                                <h4>Video Consultation</h4>
+                                <p>₹1200 • 30 minutes</p>
+                            </div>
+                        </div>
+                        <div class="type-option" id="typeClinic">
+                            <i class="fas fa-hospital"></i>
+                            <div>
+                                <h4>Clinic Visit</h4>
+                                <p>₹1500 • ECG included</p>
+                            </div>
+                        </div>
+                        <div class="type-option" id="typeHome">
+                            <i class="fas fa-home"></i>
+                            <div>
+                                <h4>Home Visit</h4>
+                                <p>₹2500 • Senior Cardiologist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="nextStep(2)">Next</button>
+                </div>
+
+                <div class="step" id="step2">
+                    <h3>Select Cardiologist</h3>
+                    <div class="cardiologist-selection" id="cardiologistSelection">
+                        <!-- Cardiologists will be loaded here -->
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-outline" onclick="prevStep(1)">Back</button>
+                        <button class="btn-primary" onclick="nextStep(3)">Next</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step3">
+                    <h3>Patient Details</h3>
+                    <form class="patient-form" id="patientForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="patientName">Full Name *</label>
+                                <input type="text" id="patientName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAge">Age *</label>
+                                <input type="number" id="patientAge" min="1" max="120" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="patientGender">Gender *</label>
+                                <select id="patientGender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhone">Phone Number *</label>
+                                <input type="tel" id="patientPhone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardiacHistoryForm">Cardiac History *</label>
+                            <select id="cardiacHistoryForm" required>
+                                <option value="">Select History</option>
+                                <option value="none">No cardiac issues</option>
+                                <option value="hypertension">High Blood Pressure</option>
+                                <option value="diabetes">Diabetes</option>
+                                <option value="cholesterol">High Cholesterol</option>
+                                <option value="previous">Previous Heart Issue</option>
+                                <option value="family">Family History</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentMedications">Current Medications</label>
+                            <textarea id="currentMedications" placeholder="List any current heart medications..."></textarea>
+                        </div>
+                    </form>
+                    <div class="step-actions">
+                        <button class="btn-outline" onclick="prevStep(2)">Back</button>
+                        <button class="btn-primary" onclick="nextStep(4)">Next</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step4">
+                    <h3>Schedule Appointment</h3>
+                    <div class="schedule-options">
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Date *</label>
+                            <input type="date" id="preferredDate" min="">
+                        </div>
+                        <div class="time-slot-selection" id="timeSlots">
+                            <!-- Time slots will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-outline" onclick="prevStep(3)">Back</button>
+                        <button class="btn-primary" onclick="confirmCardiologyBooking()">Confirm Booking</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step5">
+                    <div class="booking-confirmation">
+                        <div class="success-icon">
+                            <i class="fas fa-heart-circle-check"></i>
+                        </div>
+                        <h3>Cardiology Consultation Booked! ❤️</h3>
+                        <div class="booking-details" id="bookingDetails">
+                            <!-- Booking details will be shown here -->
+                        </div>
+                        <div class="next-steps">
+                            <h4>Important Instructions:</h4>
+                            <ul>
+                                <li><i class="fas fa-file-medical"></i> Bring previous medical reports</li>
+                                <li><i class="fas fa-pills"></i> Continue current medications</li>
+                                <li><i class="fas fa-ban"></i> Avoid heavy meal before consultation</li>
+                                <li><i class="fas fa-clock"></i> Arrive 15 minutes early</li>
+                            </ul>
+                        </div>
+                        <button class="btn-primary" onclick="closeBookingModal()">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cardiac Emergency Modal -->
+    <div class="modal" id="emergencyModal">
+        <div class="modal-content emergency-modal">
+            <div class="emergency-header">
+                <i class="fas fa-heart-crack"></i>
+                <h2>Cardiac Emergency</h2>
+            </div>
+            <div class="emergency-instructions">
+                <h3>🚨 IMMEDIATE ACTION REQUIRED 🚨</h3>
+                <div class="instruction-steps">
+                    <div class="instruction-step">
+                        <span class="step-number">1</span>
+                        <p><strong>Call Emergency:</strong> Dial 108 or 102 immediately</p>
+                    </div>
+                    <div class="instruction-step">
+                        <span class="step-number">2</span>
+                        <p><strong>Chew Aspirin:</strong> If available and not allergic, chew one aspirin (325mg)</p>
+                    </div>
+                    <div class="instruction-step">
+                        <span class="step-number">3</span>
+                        <p><strong>Sit Down:</strong> Help person sit in comfortable position</p>
+                    </div>
+                    <div class="instruction-step">
+                        <span class="step-number">4</span>
+                        <p><strong>Loosen Clothing:</strong> Remove tight clothing</p>
+                    </div>
+                    <div class="instruction-step">
+                        <span class="step-number">5</span>
+                        <p><strong>Stay Calm:</strong> Reassure the person, don't leave alone</p>
+                    </div>
+                </div>
+            </div>
+            <div class="emergency-actions-modal">
+                <button class="btn-emergency-large" onclick="callCardiacEmergency()">
+                    <i class="fas fa-phone-alt"></i>
+                    Call 108 Now
+                </button>
+                <button class="btn-outline" onclick="closeEmergencyModal()">
+                    I Understand
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cardiology.js"></script>
+</body>
+</html>

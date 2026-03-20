@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Services - QuickCare</title>
+    <link rel="stylesheet" href="services.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>QuickCare</span>
+            </div>
+          <!----  <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="doctors.html" class="nav-link"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link active"><i class="fas fa-hand-holding-medical"></i> Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            </ul>-->
+            <div class="nav-actions">
+                <button class="emergency-btn">
+                    <i class="fas fa-ambulance"></i>
+                    Emergency
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="hero-container">
+            <h1>Our Healthcare Services</h1>
+            <p>Comprehensive medical care at your fingertips. Quality healthcare made accessible and affordable.</p>
+            <div class="search-box">
+                <input type="text" id="serviceSearch" placeholder="Search for services, treatments...">
+                <button onclick="searchServices()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Filter -->
+    <section class="services-filter">
+        <div class="container">
+            <div class="filter-options">
+                <button class="filter-btn active" data-category="all">All Services</button>
+                <button class="filter-btn" data-category="consultation">Consultation</button>
+                <button class="filter-btn" data-category="diagnostic">Diagnostic</button>
+                <button class="filter-btn" data-category="emergency">Emergency</button>
+                <button class="filter-btn" data-category="surgery">Surgery</button>
+                <button class="filter-btn" data-category="wellness">Wellness</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-main">
+        <div class="container">
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be loaded dynamically by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBookingModal()">&times;</span>
+            <h2 id="modalTitle">Book Service</h2>
+            
+            <div class="service-info" id="serviceInfo">
+                <!-- Service details will be loaded here -->
+            </div>
+
+            <form class="booking-form" id="bookingForm">
+                <div class="form-group">
+                    <label for="patientName">Your Name *</label>
+                    <input type="text" id="patientName" name="patientName" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="patientPhone">Phone Number *</label>
+                        <input type="tel" id="patientPhone" name="patientPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patientEmail">Email Address</label>
+                        <input type="email" id="patientEmail" name="patientEmail">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appointmentDate">Preferred Date *</label>
+                        <input type="date" id="appointmentDate" name="appointmentDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentTime">Preferred Time *</label>
+                        <input type="time" id="appointmentTime" name="appointmentTime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="symptoms">Symptoms / Additional Information</label>
+                    <textarea id="symptoms" name="symptoms" rows="3" placeholder="Describe your symptoms or any additional requirements..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-outline" onclick="closeBookingModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Booking Confirmed! 🎉</h3>
+            <p id="successMessage">Your appointment has been scheduled successfully.</p>
+            <div class="booking-details" id="bookingDetails">
+                <!-- Booking details will be shown here -->
+            </div>
+            <button class="btn-primary" onclick="closeSuccessModal()">Done</button>
+        </div>
+    </div>
+
+    <script src="service.js"></script>
+</body>
+</html>

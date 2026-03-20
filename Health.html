@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - HealthCare Pro</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --danger: #ea4335;
+            --light: #f8f9fa;
+            --dark: #202124;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0d5bba;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+        }
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        /* Specialities Section */
+        .specialities {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+        
+        .specialities-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .specialities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .speciality-card {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .speciality-card:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .speciality-card:hover i,
+        .speciality-card:hover h3,
+        .speciality-card:hover p {
+            color: white;
+        }
+        
+        .speciality-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .speciality-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+        
+        .speciality-card p {
+            color: #666;
+            line-height: 1.6;
+            transition: color 0.3s;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f5f7fa 100%);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin: 1rem 0;
+            }
+            
+            .nav-links li {
+                margin: 0 0.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <h1>HealthCare Pro</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="">Home</a></li> 
+             <li><a href="Services.html" class="active">Services</a></li>
+              <li><a href="doctors.html">Doctor</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li> 
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;
+            <button class="btn btn-primary">
+            
+            <li><a href="Chat.html"><b>Chatbot &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a></li>
+            </button>
+              </ul>
+        
+       <!---<button class="btn btn-primary">Login</button>-->
+       
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our Healthcare Services</h1>
+        <p>We offer comprehensive medical services to meet all your healthcare needs. Our expert team and advanced facilities ensure you receive the best possible care.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="services-container">
+            <div class="section-title">
+                <h2>Featured Services</h2>
+                <p>Explore our range of specialized healthcare services designed to provide complete care for you and your family.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d" alt="General Consultation">
+                    </div>
+                    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+                    <button class="btn btn-primary">
+                          <li><a href="General Consultation.html"><b>General Consultation</b></a></li>
+                    </button>
+                    <div class="service-content">
+                       <!---- <h3>General Consultation</h3>--->
+                        <p>Comprehensive health check-ups and consultations with our experienced general physicians for diagnosis and treatment of common illnesses.</p>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> 30-60 mins</span>
+                            <span class="price">₹500</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+  <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842" alt="Cardiology">
+                    </div>
+                    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+                    <button class="btn btn-primary">
+                          <li><a href="Cardiology Services.html"><b>Cardiology Services</b></a></li>
+                    </button>
+                    <div class="service-content">
+                       <!---- <h3>General Consultation</h3>--->
+                        <p>Advanced cardiac care including ECG, stress tests, echocardiography, and consultations with our expert cardiologists.</p>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> 1-2 hours</span>
+                            <span class="price">₹1200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+
+ <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" alt="Pediatrics">
+                    </div>
+                    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+                    <button class="btn btn-primary">
+                          <li><a href="Pediatric Care.html"><b>Pediatric Care</b></a></li>
+                    </button>
+                    <div class="service-content">
+                        <p>Specialized healthcare for infants, children, and adolescents, including vaccinations, growth monitoring, and illness management.</p>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> 30-45 mins</span>
+                            <span class="price">₹600</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Service 4 -->
+
+<div class="service-card">
+                    <div class="service-image">
+                        <img src="https://physio-joint.co.uk/wp-content/uploads/2020/08/Physio-webimg.jpg" alt="Physiotherapy">
+                    </div>
+                    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+                    <button class="btn btn-primary">
+                          <li><a href="Physiotherapy.html"><b>Physiotherapy</b></a></li>
+                    </button>
+                    <div class="service-content">
+                        <p>Customized rehabilitation programs for injury recovery, pain management, and improving mobility and physical function.</p>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> 45-60 mins</span>
+                            <span class="price">₹800/session</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- Service 5 -->
+
+<div class="service-card">
+                    <div class="service-image">
+                        <img src="https://static.vecteezy.com/system/resources/previews/045/961/424/non_2x/professional-tooth-cleaning-dentist-with-assistant-under-microscope-treats-the-patient-s-teeth-modern-progressive-dentistry-photo.jpg" alt="DentalCare">
+                    </div>
+                    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+                    <button class="btn btn-primary">
+                          <li><a href="Dental Care.html"><b>Dental Care</b></a></li>
+                    </button>
+                    <div class="service-content">
+                        <p>Complete oral health services including cleaning, fillings, extractions, and cosmetic dentistry procedures.</p>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> 30-90 mins</span>
+                            <span class="price">₹400-₹3000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+
+<div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f" alt="Diagnostics">
+                    </div>
+                    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+                    <button class="btn btn-primary">
+                          <li><a href="Diagnostics.html"><b>Diagnostics</b></a></li>
+                    </button>
+                    <div class="service-content">
+                        <p>State-of-the-art laboratory tests, imaging services including X-ray, ultrasound, and MRI for accurate diagnosis.</p>
+                        <div class="service-meta">
+                            <span><i class="fas fa-clock"></i> Varies</span>
+                            <span class="price">₹400-₹3000</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialities Section -->
+    <section class="specialities">
+        <div class="specialities-container">
+            <div class="section-title">
+                <h2>Our Specialities</h2>
+                <p>We have expert doctors in all major medical specialities to provide comprehensive care for all your health needs.</p>
+            </div>
+            
+            <div class="specialities-grid">
+                <div class="speciality-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Cardiology</h3>
+                    <p>Heart health and cardiovascular disease management</p>
+                </div>
+                
+                <div class="speciality-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Neurology</h3>
+                    <p>Treatment for disorders of the nervous system</p>
+                </div>
+                
+                <div class="speciality-card">
+                    <i class="fas fa-bone"></i>
+                    <h3>Orthopedics</h3>
+                    <p>Care for musculoskeletal system and injuries</p>
+                </div>
+                
+                <div class="speciality-card">
+                    <i class="fas fa-lungs"></i>
+                    <h3>Pulmonology</h3>
+                    <p>Respiratory system and lung disease specialists</p>
+                </div>
+                
+                <div class="speciality-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Ophthalmology</h3>
+                    <p>Eye care and vision health services</p>
+                </div>
+                
+                <div class="speciality-card">
+                    <i class="fas fa-allergies"></i>
+                    <h3>Allergy</h3>
+                    <p>Diagnosis and treatment of allergic conditions</p>
+                </div>
+                
+                <div class="speciality-card">
+                    <i class="fas fa-child"></i>
+                    <h3>Pediatrics</h3>
+                    <p>Healthcare for infants, children and adolescents</p>
+                </div>
+                
+                <div class="speciality-card">
+                    <i class="fas fa-female"></i>
+                    <h3>Gynecology</h3>
+                    <p>Women's reproductive health services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Ready to Book an Appointment?</h2>
+        <p>Our team of healthcare professionals is ready to provide you with exceptional care. Schedule your visit today.</p>
+        <!-- - <button class="btn btn-primary">Book Now</button> -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+       <!---- <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <h1>HealthCare Pro</h1>
+        </div>
+        
+     <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        --->
+        <div class="social-links">
+            <a href="https://www.facebook.com/login.php/"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/i/flow/login"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/nitesh-kumar-mall-41b995325"><i class="fab fa-linkedin"></i></a>
+        </div>
+        
+        <p class="copyright">© 2023 HealthCare Pro. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple JavaScript for active nav link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Add click event for booking button
+           const bookButtons = document.querySelectorAll('.btn-primary');
+            bookButtons.forEach(button => {
+                if (button.textContent === 'Book Now') {
+                    button.addEventListener('click', function() {
+                        window.location.href = 'appointment.html';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

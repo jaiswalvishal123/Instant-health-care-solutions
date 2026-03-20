@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Consultation - QuickCare</title>
+    <link rel="stylesheet" href="consultation.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>QuickCare</span>
+            </div>
+            <ul class="nav-menu">
+             <!---  <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="doctors.html" class="nav-link"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link"><i class="fas fa-hand-holding-medical"></i> Services</a></li>
+                <li class="nav-item"><a href="consultation.html" class="nav-link active"><i class="fas fa-stethoscope"></i> Consultation</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-phone-alt"></i> Contact</a></li> ---->
+            </ul>
+            <div class="nav-actions">
+                <button class="emergency-btn">
+                    <i class="fas fa-ambulance"></i>
+                    Emergency
+                </button>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Consultation Hero Section -->
+    <section class="consultation-hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Online General Consultation</h1>
+                <p class="hero-subtitle">Get expert medical advice from the comfort of your home</p>
+                <p class="hero-description">
+                    Connect with experienced doctors via video call, chat, or phone. Get prescriptions, 
+                    medical advice, and follow-up care without leaving your home.
+                </p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-video"></i>
+                        <span>Video Consultation</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-comment-medical"></i>
+                        <span>Chat with Doctors</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-prescription"></i>
+                        <span>Digital Prescription</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-truck-medical"></i>
+                        <span>Medicine Delivery</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=500&fit=crop" alt="Online Consultation">
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Options -->
+    <section class="consultation-options">
+        <div class="container">
+            <h2>Choose Your Consultation Type</h2>
+            <div class="options-grid">
+                <div class="consultation-card" data-type="video">
+                    <div class="card-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Consultation</h3>
+                    <p class="price">₹299</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 15-30 minutes video call</li>
+                        <li><i class="fas fa-check"></i> Face-to-face with doctor</li>
+                        <li><i class="fas fa-check"></i> Instant prescription</li>
+                        <li><i class="fas fa-check"></i> Record session available</li>
+                    </ul>
+                    <button class="btn-primary" onclick="selectConsultationType('video')">
+                        Book Video Call
+                    </button>
+                </div>
+
+                <div class="consultation-card popular" data-type="chat">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="card-icon">
+                        <i class="fas fa-comment-medical"></i>
+                    </div>
+                    <h3>Chat Consultation</h3>
+                    <p class="price">₹199</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 24/7 chat with doctors</li>
+                        <li><i class="fas fa-check"></i> Share photos & reports</li>
+                        <li><i class="fas fa-check"></i> Prescription in chat</li>
+                        <li><i class="fas fa-check"></i> 12-hour response time</li>
+                    </ul>
+                    <button class="btn-primary" onclick="selectConsultationType('chat')">
+                        Start Chat
+                    </button>
+                </div>
+
+                <div class="consultation-card" data-type="voice">
+                    <div class="card-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Voice Call</h3>
+                    <p class="price">₹249</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 15-minute phone call</li>
+                        <li><i class="fas fa-check"></i> Discuss symptoms privately</li>
+                        <li><i class="fas fa-check"></i> Prescription via SMS/Email</li>
+                        <li><i class="fas fa-check"></i> Flexible timing</li>
+                    </ul>
+                    <button class="btn-primary" onclick="selectConsultationType('voice')">
+                        Book Call
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symptoms Checker -->
+    <section class="symptoms-checker">
+        <div class="container">
+            <h2>Describe Your Symptoms</h2>
+            <p class="section-subtitle">Help us understand your condition better</p>
+            
+            <div class="symptoms-form">
+                <div class="form-section">
+                    <h3>Primary Symptoms</h3>
+                    <div class="symptoms-grid">
+                        <div class="symptom-option" data-symptom="fever">
+                            <i class="fas fa-thermometer-full"></i>
+                            <span>Fever</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="headache">
+                            <i class="fas fa-head-side-virus"></i>
+                            <span>Headache</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="cough">
+                            <i class="fas fa-lungs-virus"></i>
+                            <span>Cough</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="cold">
+                            <i class="fas fa-wind"></i>
+                            <span>Cold</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="stomach">
+                            <i class="fas fa-stomach"></i>
+                            <span>Stomach Pain</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="body-pain">
+                            <i class="fas fa-bone"></i>
+                            <span>Body Pain</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="breathing">
+                            <i class="fas fa-wind"></i>
+                            <span>Breathing Issue</span>
+                        </div>
+                        <div class="symptom-option" data-symptom="skin">
+                            <i class="fas fa-allergies"></i>
+                            <span>Skin Issue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Symptom Details</h3>
+                    <div class="form-group">
+                        <label for="symptomDuration">How long have you had these symptoms?</label>
+                        <select id="symptomDuration">
+                            <option value="">Select Duration</option>
+                            <option value="less-day">Less than 24 hours</option>
+                            <option value="1-3-days">1-3 days</option>
+                            <option value="3-7-days">3-7 days</option>
+                            <option value="1-2-weeks">1-2 weeks</option>
+                            <option value="more-weeks">More than 2 weeks</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="symptomSeverity">Severity Level</label>
+                        <div class="severity-options">
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="mild">
+                                <span class="severity-label mild">Mild</span>
+                            </label>
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="moderate">
+                                <span class="severity-label moderate">Moderate</span>
+                            </label>
+                            <label class="severity-option">
+                                <input type="radio" name="severity" value="severe">
+                                <span class="severity-label severe">Severe</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" placeholder="Describe your symptoms in detail, any medications you're taking, allergies, etc." rows="4"></textarea>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn-large" onclick="analyzeSymptoms()">
+                    <i class="fas fa-stethoscope"></i>
+                    Analyze Symptoms & Find Doctor
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Doctors -->
+    <section class="available-doctors">
+        <div class="container">
+            <h2>Available General Physicians</h2>
+            <div class="doctors-filter">
+                <div class="filter-group">
+                    <label>Availability:</label>
+                    <select id="availabilityFilter">
+                        <option value="all">All Doctors</option>
+                        <option value="online">Online Now</option>
+                        <option value="today">Available Today</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Experience:</label>
+                    <select id="experienceFilter">
+                        <option value="all">Any Experience</option>
+                        <option value="5">5+ Years</option>
+                        <option value="10">10+ Years</option>
+                        <option value="15">15+ Years</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="doctors-grid" id="doctorsGrid">
+                <!-- Doctors will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Booking Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Your Consultation</h2>
+            
+            <div class="booking-steps">
+                <div class="step active" id="step1">
+                    <h3>Consultation Type</h3>
+                    <div class="consultation-type-selection">
+                        <div class="type-option" id="typeVideo">
+                            <i class="fas fa-video"></i>
+                            <div>
+                                <h4>Video Consultation</h4>
+                                <p>₹299 • 15-30 minutes</p>
+                            </div>
+                        </div>
+                        <div class="type-option" id="typeChat">
+                            <i class="fas fa-comment-medical"></i>
+                            <div>
+                                <h4>Chat Consultation</h4>
+                                <p>₹199 • 24/7 available</p>
+                            </div>
+                        </div>
+                        <div class="type-option" id="typeVoice">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Voice Call</h4>
+                                <p>₹249 • 15 minutes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="nextStep(2)">Next</button>
+                </div>
+
+                <div class="step" id="step2">
+                    <h3>Select Doctor</h3>
+                    <div class="doctor-selection" id="doctorSelection">
+                        <!-- Doctors will be loaded here -->
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-outline" onclick="prevStep(1)">Back</button>
+                        <button class="btn-primary" onclick="nextStep(3)">Next</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step3">
+                    <h3>Patient Details</h3>
+                    <form class="patient-form" id="patientForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="patientName">Full Name *</label>
+                                <input type="text" id="patientName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAge">Age *</label>
+                                <input type="number" id="patientAge" min="1" max="120" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="patientGender">Gender *</label>
+                                <select id="patientGender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhone">Phone Number *</label>
+                                <input type="tel" id="patientPhone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientEmail">Email Address</label>
+                            <input type="email" id="patientEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="medicalHistory">Medical History (if any)</label>
+                            <textarea id="medicalHistory" placeholder="Any existing conditions, allergies, current medications..."></textarea>
+                        </div>
+                    </form>
+                    <div class="step-actions">
+                        <button class="btn-outline" onclick="prevStep(2)">Back</button>
+                        <button class="btn-primary" onclick="nextStep(4)">Next</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step4">
+                    <h3>Schedule Appointment</h3>
+                    <div class="schedule-options">
+                        <div class="time-slot-selection" id="timeSlots">
+                            <!-- Time slots will be loaded here -->
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Date</label>
+                            <input type="date" id="preferredDate" min="">
+                        </div>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn-outline" onclick="prevStep(3)">Back</button>
+                        <button class="btn-primary" onclick="confirmBooking()">Confirm Booking</button>
+                    </div>
+                </div>
+
+                <div class="step" id="step5">
+                    <div class="booking-confirmation">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Consultation Booked Successfully! 🎉</h3>
+                        <div class="booking-details" id="bookingDetails">
+                            <!-- Booking details will be shown here -->
+                        </div>
+                        <div class="next-steps">
+                            <h4>What's Next?</h4>
+                            <ul>
+                                <li><i class="fas fa-envelope"></i> Confirmation sent to your email</li>
+                                <li><i class="fas fa-calendar-check"></i> Add to your calendar</li>
+                                <li><i class="fas fa-video"></i> Join 5 minutes before scheduled time</li>
+                            </ul>
+                        </div>
+                        <button class="btn-primary" onclick="closeBookingModal()">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Section -->
+    <section class="emergency-section">
+        <div class="container">
+            <div class="emergency-content">
+                <div class="emergency-info">
+                    <h2>Need Immediate Help?</h2>
+                    <p>For urgent medical concerns, don't wait for online consultation</p>
+                    <div class="emergency-contacts">
+                        <div class="emergency-contact">
+                            <i class="fas fa-ambulance"></i>
+                            <div>
+                                <h4>Emergency Ambulance</h4>
+                                <p class="number">108</p>
+                            </div>
+                        </div>
+                        <div class="emergency-contact">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>24/7 Helpline</h4>
+                                <p class="number">1800-123-456</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="emergency-actions">
+                    <button class="btn-emergency" onclick="callEmergency()">
+                        <i class="fas fa-phone-alt"></i>
+                        Call Emergency Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="consultation.js"></script>
+</body>
+</html>
